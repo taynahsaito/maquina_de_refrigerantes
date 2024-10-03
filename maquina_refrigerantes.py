@@ -3,7 +3,8 @@ from tkinter import messagebox
 
 # Alfabeto
 I = ['m25', 'm50', 'm100', 'b']
-# Tabela de estados (mesma que você forneceu)
+
+# Tabela de estados
 T = {
     # Estado s0
     ('s0', 'b'): ('s0', 'n'), 
@@ -60,7 +61,6 @@ T = {
     ('s8', 'm100'): ('s8', 't100')
 }
 
-# Formatação das saídas
 formatacao_saida = {
     'n': '',
     'm25': 'R$0,25',
@@ -108,7 +108,6 @@ class MaquinaDeVenda(tk.Tk):
         self.btn_entrar.grid(row=0, column=3, padx=5)
 
     def atualizar_interface(self, saida):
-        # Formata a saída usando o dicionário
         saida_formatada = formatacao_saida.get(saida, "Saída desconhecida")
         self.label_estado.config(text=f"Estado: {self.estado_atual}")
         self.label_saida.config(text=f"Saída: {saida_formatada}")
